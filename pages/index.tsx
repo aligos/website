@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
-  return <h1 className="text-3xl font-bold underline text-green-200">Hello world!</h1>
+  return <h1 className="text-5xl font-timmons">RAHMAT ALIGOS</h1>
 }
 
 export default Home
