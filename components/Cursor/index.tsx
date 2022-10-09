@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import clsx from '../../utils/clsx'
+import clsx from 'utils/clsx'
+import { useContextSelector } from 'use-context-selector'
+import AppContext from 'context/appContext'
 
 const Cursor = () => {
+  const cursorType = useContextSelector(AppContext, (s) => s.cursorType)
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0,
@@ -24,20 +27,31 @@ const Cursor = () => {
   }, [])
 
   // to replace this with context
-  const focused = false
-
+  const focused = cursorType === 'focus'
   const cursorRad = focused ? 16 : 32
 
   return (
     <motion.span
       className={clsx(
-        'pointer-none touch-none h-16 w-16 left-0 top-0 opacity-10 fixed z-10 bg-blue-500 rounded-full',
-        focused && 'h-8 w-8 opacity-100'
+        'touch-none pointer-events-none left-0 top-0 fixed z-10 bg-blue-500 rounded-full'
       )}
-      animate={{
-        x: mousePosition.x - cursorRad,
-        y: mousePosition.y - cursorRad,
-      }}
+      animate={
+        focused
+          ? {
+              x: mousePosition.x - cursorRad,
+              y: mousePosition.y - cursorRad,
+              height: 32,
+              width: 32,
+              opacity: 1,
+            }
+          : {
+              x: mousePosition.x - cursorRad,
+              y: mousePosition.y - cursorRad,
+              height: 64,
+              width: 64,
+              opacity: 0.1,
+            }
+      }
       transition={{
         ease: 'easeOut',
         duration: 0.5,
