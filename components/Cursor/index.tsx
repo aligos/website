@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import clsx from '../../utils/clsx'
 
 const Cursor = () => {
   const [mousePosition, setMousePosition] = useState({
@@ -22,16 +23,25 @@ const Cursor = () => {
     }
   }, [])
 
+  // to replace this with context
+  const focused = true
+
+  const cursorRad = focused ? 16 : 32
+  const duration = focused ? 0.3 : 0.5
+
   return (
     <motion.span
-      className="pointer-none touch-none h-16 w-16 left-0 top-0 opacity-10 fixed z-10 bg-blue-500 rounded-full"
+      className={clsx(
+        'pointer-none touch-none h-16 w-16 left-0 top-0 opacity-10 fixed z-10 bg-blue-500 rounded-full',
+        focused && 'h-8 w-8 opacity-100'
+      )}
       animate={{
-        x: mousePosition.x - 32,
-        y: mousePosition.y - 32,
+        x: mousePosition.x - cursorRad,
+        y: mousePosition.y - cursorRad,
       }}
       transition={{
         ease: 'linear',
-        duration: 0.5,
+        duration,
       }}
     />
   )
