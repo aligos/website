@@ -24,10 +24,9 @@ const Cursor = () => {
   }, [])
 
   // to replace this with context
-  const focused = true
+  const focused = false
 
   const cursorRad = focused ? 16 : 32
-  const duration = focused ? 0.3 : 0.5
 
   return (
     <motion.span
@@ -40,8 +39,8 @@ const Cursor = () => {
         y: mousePosition.y - cursorRad,
       }}
       transition={{
-        ease: 'linear',
-        duration,
+        ease: 'easeOut',
+        duration: 0.5,
       }}
     />
   )
