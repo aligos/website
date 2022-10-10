@@ -10,6 +10,7 @@ const Link: React.FC<Props> = ({ children, ...props }) => {
   return (
     <NextLink {...props}>
       <span
+        className="cursor-pointer"
         onMouseEnter={() => setCursorType('focus')}
         onMouseLeave={() => setCursorType('default')}>
         {children}

@@ -8,6 +8,14 @@ const Home: NextPage = () => {
       <Head>
         <title>Rahmat Aligos - Frontend Engineer</title>
       </Head>
+      <div className="p-8 z-20 fixed left-0 top-0 w-full flex justify-between items-cente">
+        <Link href="/projects">
+          <span className="text-lg font-cinetype font-bold">work</span>
+        </Link>
+        <Link href="/info">
+          <span className="text-lg font-cinetype font-bold">info</span>
+        </Link>
+      </div>
       <main>
         <section className="flex flex-col justify-center items-center overflow-hidden relative z-10 min-h-screen container-large mx-auto">
           <div className="text-5xl md:text-8xl font-cinetype font-bold text-center">
@@ -15,7 +23,7 @@ const Home: NextPage = () => {
             <p>
               who loves{' '}
               <Link href="">
-                <a className="italic hover:text-blue-700 cursor-pointer">functional programming</a>
+                <a className="italic hover:text-blue-700">functional programming</a>
               </Link>
             </p>
             <p>— based in Tasikmalaya.</p>
