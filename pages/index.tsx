@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <title>Rahmat Aligos - Frontend Engineer</title>
       </Head>
       <h1
-        className="text-5xl font-timmons"
+        className="text-5xl font-timmons cursor-pointer"
         onMouseEnter={() => setCursorType('focus')}
         onMouseLeave={() => setCursorType('default')}>
         RAHMAT ALIGOS
