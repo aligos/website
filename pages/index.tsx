@@ -18,7 +18,7 @@ const Home: NextPage = () => {
             <p>
               who loves{' '}
               <span
-                className="italic hover:text-blue-700"
+                className="italic hover:text-blue-700 cursor-pointer"
                 onMouseEnter={() => setCursorType('focus')}
                 onMouseLeave={() => setCursorType('default')}>
                 functional programming
