@@ -1,11 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useContextSelector } from 'use-context-selector'
-import AppContext from 'context/appContext'
+import Link from 'components/Link'
 
 const Home: NextPage = () => {
-  const setCursorType = useContextSelector(AppContext, (s) => s.setCursorType)
-
   return (
     <div>
       <Head>
@@ -17,12 +14,9 @@ const Home: NextPage = () => {
             <p>👋 I am a frontend programmer</p>
             <p>
               who loves{' '}
-              <span
-                className="italic hover:text-blue-700 cursor-pointer"
-                onMouseEnter={() => setCursorType('focus')}
-                onMouseLeave={() => setCursorType('default')}>
-                functional programming
-              </span>
+              <Link href="">
+                <a className="italic hover:text-blue-700 cursor-pointer">functional programming</a>
+              </Link>
             </p>
             <p>— based in Tasikmalaya.</p>
           </div>
