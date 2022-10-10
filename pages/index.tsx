@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <section className="flex flex-col justify-center items-center overflow-hidden relative z-10 min-h-screen container-large mx-auto">
-          <div className="text-8xl font-cinetype font-bold text-center">
+          <div className="text-5xl md:text-8xl font-cinetype font-bold text-center">
             <p>👋 I am a frontend programmer</p>
             <p>
               who loves{' '}
