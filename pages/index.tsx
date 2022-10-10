@@ -31,7 +31,7 @@ const Home: NextPage = () => {
         </section>
       </main>
       <div className="fixed left-0 top-0 h-full w-full flex justify-center items-center overflow-hidden bg-neutral-100">
-        <span className="text-[60rem] font-timmons text-white">ALIGOS</span>
+        <span className="text-[16rem] md:text-[60rem] font-timmons text-white">ALIGOS</span>
       </div>
     </div>
   )
