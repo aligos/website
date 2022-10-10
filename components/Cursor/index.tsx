@@ -3,6 +3,12 @@ import { motion } from 'framer-motion'
 import { useContextSelector } from 'use-context-selector'
 import AppContext from 'context/appContext'
 
+const SIZE_TRANSITION = {
+  type: 'spring',
+  stiffness: 150,
+  duration: 0.5,
+}
+
 const Cursor = () => {
   const cursorType = useContextSelector(AppContext, (s) => s.cursorType)
   const [mousePosition, setMousePosition] = useState({
@@ -25,50 +31,37 @@ const Cursor = () => {
     }
   }, [])
 
-  // to replace this with context
   const focused = cursorType === 'focus'
   const cursorRad = focused ? 10 : 32
+  const POS = { x: mousePosition.x - cursorRad, y: mousePosition.y - cursorRad }
 
   return (
     <motion.span
-      className="touch-none pointer-events-none left-0 top-0 fixed z-10 rounded-full flex"
+      className="touch-none pointer-events-none left-0 top-0 fixed z-10 rounded-full bg-blue-700"
       animate={
         focused
           ? {
-              x: mousePosition.x - cursorRad,
-              y: mousePosition.y - cursorRad,
+              ...POS,
               opacity: 1,
+              height: 24,
+              width: 24,
             }
           : {
-              x: mousePosition.x - cursorRad,
-              y: mousePosition.y - cursorRad,
+              ...POS,
               opacity: 0.1,
+              height: 64,
+              width: 64,
             }
       }
       transition={{
-        ease: 'easeOut',
-        duration: 0.5,
-      }}>
-      <motion.span
-        transition={{
-          type: 'spring',
-          stiffness: 150,
+        default: {
+          ease: 'easeOut',
           duration: 0.5,
-        }}
-        animate={
-          focused
-            ? {
-                height: 24,
-                width: 24,
-              }
-            : {
-                height: 64,
-                width: 64,
-              }
-        }
-        className="bg-blue-700 rounded-full items-center justify-center"
-      />
-    </motion.span>
+        },
+        height: SIZE_TRANSITION,
+        width: SIZE_TRANSITION,
+      }}
+    />
   )
 }
 
