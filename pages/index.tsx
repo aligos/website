@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'components/Link'
 
 const Home: NextPage = () => {
@@ -8,7 +9,8 @@ const Home: NextPage = () => {
       <Head>
         <title>Rahmat Aligos - Frontend Engineer</title>
       </Head>
-      <div className="p-8 z-20 fixed left-0 top-0 w-full flex justify-between items-cente">
+      {/* Nav Header */}
+      <div className="p-6 z-20 fixed left-0 top-0 w-full flex justify-between items-cente">
         <Link href="/projects">
           <span className="text-lg font-cinetype font-bold">work</span>
         </Link>
@@ -16,6 +18,7 @@ const Home: NextPage = () => {
           <span className="text-lg font-cinetype font-bold">info</span>
         </Link>
       </div>
+      {/* Hero / Main Content */}
       <main>
         <section className="flex flex-col justify-center items-center overflow-hidden relative z-10 min-h-screen container-large mx-auto">
           <div className="text-xl md:text-8xl font-cinetype font-bold text-center">
@@ -30,9 +33,28 @@ const Home: NextPage = () => {
           </div>
         </section>
       </main>
+      {/* Background Text */}
       <div className="fixed left-0 top-0 h-full w-full flex justify-center items-center overflow-hidden bg-neutral-100">
         <span className="text-[16rem] md:text-[60rem] font-timmons text-white">ALIGOS</span>
       </div>
+      {/* Social Link */}
+      <ul className="fixed left-6 bottom-8 flex flex-row gap-4 z-10">
+        <li>
+          <Link href="https://github.com/aligos">
+            <Image src="/icons/github.svg" alt="github" height={32} width={32} />
+          </Link>
+        </li>
+        <li>
+          <Link href="https://www.linkedin.com/in/rahmat-aligos-10658888/">
+            <Image src="/icons/linkedin.svg" alt="linkedin" height={32} width={32} />
+          </Link>
+        </li>
+        <li>
+          <Link href="https://dribbble.com/aligos">
+            <Image src="/icons/dribbble.svg" alt="Dribbble" height={32} width={32} />
+          </Link>
+        </li>
+      </ul>
     </div>
   )
 }
